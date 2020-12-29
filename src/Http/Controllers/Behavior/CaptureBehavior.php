@@ -2,6 +2,7 @@
 
 namespace Recca0120\LaravelPayum\Http\Controllers\Behavior;
 
+use Illuminate\Http\Request;
 use Recca0120\LaravelPayum\Service\PayumService;
 
 trait CaptureBehavior
@@ -13,8 +14,8 @@ trait CaptureBehavior
      * @param string $payumToken
      * @return mixed
      */
-    public function receiveCapture(PayumService $payumService, $payumToken = null)
+    public function receiveCapture(PayumService $payumService, Request $request, $payumToken = null)
     {
-        return $payumService->receiveCapture($payumToken);
+        return $payumService->receiveCapture($this->checkPayumToken($request, $payumToken));
     }
 }

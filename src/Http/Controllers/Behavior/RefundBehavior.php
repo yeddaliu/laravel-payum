@@ -2,6 +2,7 @@
 
 namespace Recca0120\LaravelPayum\Http\Controllers\Behavior;
 
+use Illuminate\Http\Request;
 use Recca0120\LaravelPayum\Service\PayumService;
 
 trait RefundBehavior
@@ -13,8 +14,8 @@ trait RefundBehavior
      * @param string $payumToken
      * @return mixed
      */
-    public function receiveRefund(PayumService $payumService, $payumToken)
+    public function receiveRefund(PayumService $payumService, Request $request, $payumToken = null)
     {
-        return $payumService->receiveRefund($payumToken);
+        return $payumService->receiveRefund($this->checkPayumToken($request, $payumToken));
     }
 }

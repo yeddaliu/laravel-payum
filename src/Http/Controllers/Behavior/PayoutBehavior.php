@@ -2,6 +2,7 @@
 
 namespace Recca0120\LaravelPayum\Http\Controllers\Behavior;
 
+use Illuminate\Http\Request;
 use Recca0120\LaravelPayum\Service\PayumService;
 
 trait PayoutBehavior
@@ -13,8 +14,8 @@ trait PayoutBehavior
      * @param string $payumToken
      * @return mixed
      */
-    public function receivePayout(PayumService $payumService, $payumToken)
+    public function receivePayout(PayumService $payumService, Request $request, $payumToken = null)
     {
-        return $payumService->receivePayout($payumToken);
+        return $payumService->receivePayout($this->checkPayumToken($request, $payumToken));
     }
 }

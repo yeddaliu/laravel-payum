@@ -67,7 +67,8 @@ class UpdatePaymentStatusExtension implements ExtensionInterface
             if ($payment instanceof PaymentStatus) {
                 $payment->setStatus($status->getValue());
             }
-            $this->events->fire(new StatusChanged($status, $payment));
+            // fire method was deprecated since v5.8
+            $this->events->dispatch(new StatusChanged($status, $payment));
         }
     }
 }

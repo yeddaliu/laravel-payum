@@ -2,6 +2,7 @@
 
 namespace Recca0120\LaravelPayum\Http\Controllers\Behavior;
 
+use Illuminate\Http\Request;
 use Recca0120\LaravelPayum\Service\PayumService;
 
 trait SyncBehavior
@@ -13,8 +14,8 @@ trait SyncBehavior
      * @param string $payumToken
      * @return mixed
      */
-    public function receiveSync(PayumService $payumService, $payumToken)
+    public function receiveSync(PayumService $payumService, Request $request, $payumToken = null)
     {
-        return $payumService->receiveSync($payumToken);
+        return $payumService->receiveSync($this->checkPayumToken($request, $payumToken));
     }
 }

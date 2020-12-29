@@ -1,4 +1,4 @@
-## [Payum](https://github.com/Payum/Payum) for Laravel 5
+## [Payum](https://github.com/Payum/Payum) for Laravel 6.x
 
 [![StyleCI](https://styleci.io/repos/62729797/shield?style=flat)](https://styleci.io/repos/62729797)
 [![Build Status](https://travis-ci.org/recca0120/laravel-payum.svg)](https://travis-ci.org/recca0120/laravel-payum)

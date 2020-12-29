@@ -2,6 +2,7 @@
 
 namespace Recca0120\LaravelPayum\Http\Controllers\Behavior;
 
+use Illuminate\Http\Request;
 use Recca0120\LaravelPayum\Service\PayumService;
 
 trait AuthorizeBehavior
@@ -13,8 +14,8 @@ trait AuthorizeBehavior
      * @param string $payumToken
      * @return mixed
      */
-    public function receiveAuthorize(PayumService $payumService, $payumToken)
+    public function receiveAuthorize(PayumService $payumService, Request $request, $payumToken = null)
     {
-        return $payumService->receiveAuthorize($payumToken);
+        return $payumService->receiveAuthorize($this->checkPayumToken($request, $payumToken));
     }
 }
